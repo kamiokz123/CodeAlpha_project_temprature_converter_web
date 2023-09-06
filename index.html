@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>temprature converter</title>
+    <link rel="stylesheet" href="./index.css">
+    <link href="https://fonts.cdnfonts.com/css/sushi-moshi-2" rel="stylesheet">
+    <script src="./temp_converter.js"></script>
+                
+</head>
+<body>
+
+    <div class="main">
+        <div class="tittle">
+               <h1>CodeAlpha project Temprature converter website</h1>
+               
+        </div>
+    
+
+        <div class="sub-main">
+        <div class="converter">
+            <select name="dropdown" id="drp">
+                <option value="1" >celsius-farenhit</option>
+                <option value="2">ferenhit-celsius</option>
+            </select>
+                <!-- <label for="input-data">write number :</label> -->
+                <input type="number" id="input-data" name="input" value="0" >
+                <button type="button" id="btn1">Convert</button>
+                <div class="rslt">
+                <h3 id="result">result :</h3>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script>
+        const select = document.getElementById("drp");
+        const input = document.getElementById("input-data");
+        const btn = document.getElementById("btn1")
+        const h3 = document.getElementById("result")
+        // console.log(h3.innerHTML="bye");
+
+        function convert (){
+            let f = 32;
+            let c = 0;
+            console.log("select: "+select.value);
+            if (select.value=="1") {
+                f = (parseFloat(input.value) * (9 / 5)) + 32;
+                h3.textContent=`${f} F`;
+            }
+            else if (select.value=="2") {
+                c = (parseFloat(input.value) - 32) * 5/9;
+                h3.textContent=`${c} C` 
+            }
+            f=0;
+            c=0;
+            return true;
+        }
+
+        btn.addEventListener("click",convert)
+    </script>
+
+</body>
+</html>
